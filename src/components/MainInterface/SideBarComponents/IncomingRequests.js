@@ -1,7 +1,7 @@
 import { ListGroup, Modal, Button, ButtonGroup } from 'react-bootstrap'
 import React, {useState} from 'react'
 import { getDoc, doc, updateDoc } from 'firebase/firestore'
-import { auth, db } from '../../firebase-config'
+import { auth, db } from '../../../firebase-config'
 
 const IncomingRequests = ({showRequests, handleCloseRequests, requests, setRequests, currentUser, contacts, setContacts}) => {
 

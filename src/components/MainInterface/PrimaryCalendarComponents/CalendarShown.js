@@ -1,12 +1,12 @@
 import React from 'react'
-import CalendarMay from "../CalendarComponents/CalendarMay";
-import CalendarJune from "../CalendarComponents/CalendarJune";
-import CalendarJuly from "../CalendarComponents/CalendarJuly";
-import CalendarAugust from "../CalendarComponents/CalendarAugust";
-import CalendarSeptember from "../CalendarComponents/CalendarSeptember";
-import CalendarOctober from '../CalendarComponents/CalendarOctober';
-import CalendarNovember from '../CalendarComponents/CalendarNovember';
-import CalendarDecember from '../CalendarComponents/CalendarDecember';
+import CalendarMay from "../../CalendarComponents/CalendarMay";
+import CalendarJune from "../../CalendarComponents/CalendarJune";
+import CalendarJuly from "../../CalendarComponents/CalendarJuly";
+import CalendarAugust from "../../CalendarComponents/CalendarAugust";
+import CalendarSeptember from "../../CalendarComponents/CalendarSeptember";
+import CalendarOctober from '../../CalendarComponents/CalendarOctober';
+import CalendarNovember from '../../CalendarComponents/CalendarNovember';
+import CalendarDecember from '../../CalendarComponents/CalendarDecember';
 
 
 const CalendarShown = ({month, currentMonth, handleCurrentDay, handleCurrentMonth, storage}) => {

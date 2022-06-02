@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import CalendarShown from "./CalendarShown";
+import CalendarShown from "../PrimaryCalendarComponents/CalendarShown";
 import Note from './Note'
 import ToggleButtons from "./ToggleButtons";
 import Header from "./Header";
-import { auth, db } from "../../firebase-config";
+import { auth, db } from '../../../firebase-config'
 import { updateDoc, collection, doc, getDoc} from "firebase/firestore"; 
 
 

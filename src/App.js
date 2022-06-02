@@ -9,12 +9,12 @@ import { onAuthStateChanged } from "firebase/auth";
 export default function App() {
 
   const [currentUser, setCurrentUser] = useState('')
-  const [storage, setStorage] = useState([[{note: false}], [{note: false}], [{note: false}], [{note: false}]])
+  const [storage, setStorage] = useState([[{note: false}], [{note: false}], [{note: false}], [{note: false}], [{note: false}], [{note: false}], [{note: false}], [{note: false}]])
 
-onAuthStateChanged(auth, (retrievedUser) => {
-  setCurrentUser(retrievedUser)
-})
-
+// onAuthStateChanged(auth, (retrievedUser) => {
+//   setCurrentUser(retrievedUser)
+// })
+// this should be acting like use effect and making currentUser last user or smtn
 
 useEffect(() => {
   setCurrentUser(auth.lastNotifiedUid)
@@ -24,7 +24,7 @@ useEffect(() => {
   return (
     <div style={{width: "100vw", height: "100vh"}}>
      
-    {currentUser ? <MainContainer currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+    {!currentUser ? <MainContainer currentUser={currentUser} setCurrentUser={setCurrentUser}/>
     : 
     <Login setCurrentUser={setCurrentUser} storage={storage} setStorage={setStorage}/>}
    

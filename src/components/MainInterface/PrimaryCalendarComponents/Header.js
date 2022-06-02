@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
-import { db } from '../../firebase-config'
+import { db } from '../../../firebase-config'
 import { doc, updateDoc } from 'firebase/firestore'
 
 const Header = ({setCalendarId, calendarId, currentUser, storage, setActiveContact}) => {

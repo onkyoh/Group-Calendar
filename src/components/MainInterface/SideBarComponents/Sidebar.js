@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { auth, db } from '../../firebase-config';
+import { auth, db } from '../../../firebase-config';
 import { getDoc, doc } from 'firebase/firestore';
 import { signOut } from "firebase/auth";
 import { Button, ButtonGroup} from 'react-bootstrap'
@@ -75,6 +75,7 @@ useEffect(() => {
       <UserInfoComponent logout={logout} currentUser={currentUser}/>
         
       <AddContactModal showAdd={showAdd} handleCloseAdd={handleCloseAdd} currentUser={currentUser} errorAdd={errorAdd} setErrorAdd={setErrorAdd}/>
+      
       <DeleteContactModal showDelete={showDelete} 
       handleCloseDelete={handleCloseDelete} setContacts={setContacts}
       currentUser={currentUser} calendarId={calendarId} setCalendarId={setCalendarId}

@@ -43,7 +43,6 @@ const Login = ({setCurrentUser, storage, setStorage,}) => {
             setError(error.message)
             console.log(error.message)
         }
-
     }
 
     const login = async () => {

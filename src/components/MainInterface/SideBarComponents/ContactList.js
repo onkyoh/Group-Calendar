@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ListGroup } from 'react-bootstrap'
-import { db } from '../../firebase-config'
+import { db } from '../../../firebase-config'
 import { doc, getDoc } from 'firebase/firestore'
-import ContactInteractionModal from './ContactInteractionModal'
 
 const ContactList = ({currentUser, contacts, setContacts, setCalendarId, calendarId, activeContact, setActiveContact}) => {
 

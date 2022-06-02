@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react'
 import { Modal, Form, Button } from 'react-bootstrap'
 import { doc, updateDoc, getDoc } from "firebase/firestore";
-import { auth, db } from '../../firebase-config'
+import { auth, db } from '../../../firebase-config'
 
 const AddContactModal = ({handleCloseAdd, showAdd, currentUser, errorAdd, setErrorAdd}) => {
    
