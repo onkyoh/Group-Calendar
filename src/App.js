@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Login from './LoginInterface/Login'
+import MainContainer from "./components/MainInterface/MainContainer";
+import { auth } from './firebase-config';
+import { onAuthStateChanged } from "firebase/auth";
 
-function App() {
+
+
+export default function App() {
+
+  const [currentUser, setCurrentUser] = useState('')
+  const [storage, setStorage] = useState([[{note: false}], [{note: false}], [{note: false}], [{note: false}]])
+
+onAuthStateChanged(auth, (retrievedUser) => {
+  setCurrentUser(retrievedUser)
+})
+
+
+useEffect(() => {
+  setCurrentUser(auth.lastNotifiedUid)
+  console.log(auth.currentUser)
+}, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{width: "100vw", height: "100vh"}}>
+     
+    {currentUser ? <MainContainer currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+    : 
+    <Login setCurrentUser={setCurrentUser} storage={storage} setStorage={setStorage}/>}
+   
     </div>
+      
+  
   );
 }
-
-export default App;
