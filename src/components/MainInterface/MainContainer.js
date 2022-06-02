@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import Sidebar from './Sidebar';
-import PrimaryCalendar from './PrimaryCalendar';
+import Sidebar from './SideBarComponents/Sidebar';
+import PrimaryCalendar from './PrimaryCalendarComponents/PrimaryCalendar';
 
 const MainContainer = ({currentUser, setCurrentUser}) => {
 
