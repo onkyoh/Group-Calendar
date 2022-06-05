@@ -13,8 +13,12 @@ const DeleteContactModal = ({handleCloseDelete, showDelete, currentUser, errorDe
             const usersDoc = await getDoc(userRef)
     
             const newContacts = usersDoc.data().contacts
-            const idx = newContacts.indexOf(calendarId)
-            newContacts.splice(idx, 1)
+            const idx = newContacts.findIndex(user => user.id === calendarId)
+            if (idx >= 0) {
+               const dumbySplice = newContacts.splice(idx, 1)
+            } else {
+                setErrorDelete("The selected user was not found in your contact list")
+            }
          
             await updateDoc(userRef, {
                  contacts: [...newContacts]
@@ -32,8 +36,8 @@ const DeleteContactModal = ({handleCloseDelete, showDelete, currentUser, errorDe
             const usersDoc = await getDoc(contactRef)
 
             const newContacts = usersDoc.data().contacts
-            const idx = newContacts.indexOf(currentUser)
-            newContacts.splice(idx, 1)
+            const idx = newContacts.findIndex(user => user.id === currentUser)
+            const dumbySplice = newContacts.splice(idx, 1)
         
             await updateDoc(contactRef, {
                 contacts: [...newContacts]

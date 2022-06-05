@@ -9,7 +9,7 @@ import DeleteContactModal from './DeleteContactModal';
 import IncomingRequests from './IncomingRequests';
 import UserInfoComponent from './UserInfoComponent';
 
-const Sidebar = ({currentUser, setCurrentUser, setCalendarId, calendarId, activeContact, setActiveContact}) => {
+const Sidebar = ({currentUser, setCurrentUser, setCalendarId, calendarId, activeContact, setActiveContact, sidebarCSS}) => {
 
 const logout = async () => {
     await signOut(auth);
@@ -17,14 +17,12 @@ const logout = async () => {
 }  
 
 const [contacts, setContacts] = useState([])
-
 const [showAdd, setShowAdd] = useState(false)
 const [showDelete, setShowDelete] = useState(false)
-
 const [showRequests, setShowRequests] = useState(false)
-
 const [errorAdd, setErrorAdd] = useState("")
 const [errorDelete, setErrorDelete] = useState("")
+
 
 const handleCloseAdd = () => {
   setShowAdd(false)
@@ -55,7 +53,7 @@ useEffect(() => {
 
 
   return (
-    <div className="border d-flex flex-column justify-content-end" style={{height: "100vh", width: "300px"}}>
+    <div className="border d-flex flex-column justify-content-end" id={sidebarCSS} style={{height: "100vh", width: "300px", backgroundColor: "white"}}>
            
       <ContactList currentUser={currentUser} 
       contacts={contacts} setContacts={setContacts} 

@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 import { db } from '../../../firebase-config'
 import { doc, updateDoc } from 'firebase/firestore'
 
-const Header = ({setCalendarId, calendarId, currentUser, storage, setActiveContact}) => {
+const Header = ({setCalendarId, calendarId, currentUser, storage, setActiveContact, handleShowContacts}) => {
 
  const handleCalendarShown = () => {
   setCalendarId(currentUser)
@@ -17,6 +17,8 @@ const Header = ({setCalendarId, calendarId, currentUser, storage, setActiveConta
       })
   }
 
+  
+
   return (
     <div className='d-flex border shadow p-2 justify-content-center'>
       {calendarId === currentUser ? 
@@ -24,7 +26,6 @@ const Header = ({setCalendarId, calendarId, currentUser, storage, setActiveConta
         :
         <Button variant="outline-primary" className="rounded-0 shadow-none" onClick={handleCalendarShown}>My Calendar</Button>
       }
-        
       <Button variant="outline-success" className="rounded-0" onClick={saveChanges}>Save Changes</Button>
     </div>
   )

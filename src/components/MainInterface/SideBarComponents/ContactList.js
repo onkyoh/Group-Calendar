@@ -21,7 +21,6 @@ const ContactList = ({currentUser, contacts, setContacts, setCalendarId, calenda
   }
 
 
-
   const handleActiveContact = (i) => {
     var tempList = []
     tempList[i] = true

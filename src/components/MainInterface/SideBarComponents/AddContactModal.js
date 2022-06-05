@@ -14,11 +14,25 @@ const AddContactModal = ({handleCloseAdd, showAdd, currentUser, errorAdd, setErr
         const usersDoc = await getDoc(requestedRef)
         const existingRequests = usersDoc.data().incomingRequests
         const existingContacts = usersDoc.data().contacts
-        if (!existingRequests.includes(id) || !existingContacts.includes(id) ) {
+        
+        const contactIdx = existingContacts.findIndex(user => user.id === currentUser)
+        const requestIdx = existingRequests.findIndex(user => user.id === currentUser)
+        console.log("contacts: ", contactIdx, "requests: ", requestIdx)
+
+        if (contactIdx >= 0) {
+            setErrorAdd("That contact ID is already in your contacts")
+            return
+        }
+        if (requestIdx >= 0) {
+            setErrorAdd("You have already sent a request to that user")
+            return
+        }
+        else {
             await updateDoc(requestedRef, {
                 incomingRequests: [...existingRequests, {id: currentUser, email: auth.currentUser.email }]
             })
         }
+        handleCloseAdd()
     }
 
    
@@ -33,7 +47,6 @@ const AddContactModal = ({handleCloseAdd, showAdd, currentUser, errorAdd, setErr
             return
         }
         sendRequest(idRef.current.value)
-        handleCloseAdd()
     }
 
 

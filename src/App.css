@@ -1,0 +1,72 @@
+.display_contacts {
+    display: none;
+}
+
+#mainContainer {
+    display: flex;
+}
+
+#background {
+    height: 100vh;
+    background-image: url("/src/LoginInterface/iconsUnited.png");
+    background-clip: border-box;
+    
+}
+
+@media only screen and (max-width: 600px) {
+
+    #mainContainer {
+        display: block;
+    }
+
+    #hide_sidebar {
+        position: absolute;
+        visibility: collapse;
+    }
+    #show_sidebar {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    #hide_primaryCalendar {
+        visibility: collapse;
+    }
+
+    .display_contacts {
+        position: absolute;
+        margin-right: 5px;
+        margin-top: 7.5px;
+        display: block;
+        cursor: pointer;
+        top: 0;
+        right: 0;
+    }
+
+    #open_contacts {
+        content: url("https://img.icons8.com/ios/40/undefined/apple-contacts.png");
+    }
+
+    #open_calendar {
+        content: url("https://img.icons8.com/ios/40/undefined/calendar--v1.png");
+        margin-top: 5px;
+        margin-right: clamp(60px, 25%, 150px);
+    }
+}
+
+@media only screen and (max-width: 525px) {
+    #open_calendar {
+        content: url("https://img.icons8.com/ios/40/undefined/calendar--v1.png");
+        margin-top: 2.5px;
+        margin-right: max(80px, 21.5vw);
+        
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #open_calendar {
+        content: url("https://img.icons8.com/ios/40/undefined/calendar--v1.png");
+        margin-top: 2.5px;
+        margin-right: 50px;
+        
+    }
+}

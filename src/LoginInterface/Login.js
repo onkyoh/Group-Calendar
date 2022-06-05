@@ -28,7 +28,6 @@ const Login = ({setCurrentUser, storage, setStorage,}) => {
         }
     }  
 
-
     const register = async () => {
         try {
             const cred = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
@@ -68,22 +67,22 @@ const Login = ({setCurrentUser, storage, setStorage,}) => {
 
 
         return (
-            <div className='d-flex justify-content-center align-items-center' style={{height: "100vh"}}>
-            <Container className="border p-3" style={{ maxWidth: "400px" }}>
+            <div className='d-flex justify-content-center align-items-center' id="background">
+            <Container className="border p-4 bg-white" style={{ width: "80vw", maxWidth: "500px", minWidth: "325px"}}>
             { !needAccount ? 
-                <Form>
+                <Form className='bg-white'>
                     <h2 className="text-center">Register User</h2>
                     <p className="text-center text-danger">{error}</p>
                     <Form.Group>
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
                     </Form.Group>
-                    <Form.Group>
+                    <Form.Group className='mt-1'>
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)} />
                     </Form.Group>
-                    <Button className="d-block mx-auto mt-2" onClick={register}>Create User</Button>
-                    <div className='d-flex align-items-center justify-content-center'>
+                    <Button className="d-block mx-auto mt-3 w-50" onClick={register}>Create User</Button>
+                    <div className='d-flex align-items-center justify-content-center mt-2'>
                         <Form.Text>Already have an account?</Form.Text>
                         <Form.Text className="ms-1 text-primary"onClick={handleNeedAccount} style={{cursor: "pointer"}}>Click here.</Form.Text>
                     </div>
@@ -96,12 +95,12 @@ const Login = ({setCurrentUser, storage, setStorage,}) => {
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} />
                     </Form.Group>
-                    <Form.Group>
+                    <Form.Group className='mt-1'>
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
                     </Form.Group>
-                    <Button className="d-block mx-auto mt-2" onClick={login}>Login</Button>
-                    <div className='d-flex align-items-center justify-content-center'>
+                    <Button className="d-block mx-auto mt-3 w-50" onClick={login}>Login</Button>
+                    <div className='d-flex align-items-center justify-content-center mt-2'>
                         <Form.Text>Need to create an account?</Form.Text>
                         <Form.Text className="ms-1 text-primary" onClick={handleNeedAccount} style={{cursor: "pointer"}}>Click here.</Form.Text>
                     </div>

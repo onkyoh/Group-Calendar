@@ -3,6 +3,7 @@ import Login from './LoginInterface/Login'
 import MainContainer from "./components/MainInterface/MainContainer";
 import { auth } from './firebase-config';
 import { onAuthStateChanged } from "firebase/auth";
+import './App.css'
 
 
 
@@ -24,7 +25,7 @@ useEffect(() => {
   return (
     <div style={{width: "100vw", height: "100vh"}}>
      
-    {!currentUser ? <MainContainer currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+    {currentUser ? <MainContainer currentUser={currentUser} setCurrentUser={setCurrentUser}/>
     : 
     <Login setCurrentUser={setCurrentUser} storage={storage} setStorage={setStorage}/>}
    

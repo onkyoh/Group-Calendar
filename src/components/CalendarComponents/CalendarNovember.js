@@ -47,15 +47,14 @@ const CalendarNovember = ({handleCurrentMonth, handleCurrentDay, storage}) => {
             <Col className='p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[6][26].availability}`}>26</Button></Col>
         </Row>
         <Row className='border border-top-0'>
-            <Col className='border-end p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[6][27].availability}`}>27</Button></Col>
-            <Col className='border-end p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[6][28].availability}`}>28</Button></Col>
-            <Col className='border-end p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[6][29].availability}`}>29</Button></Col>
-            <Col className='border-end p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[6][30].availability}`}>30</Button></Col>
-            <Col className='border-end p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[6][31].availability}`}>31</Button></Col>
-            <Col className='border-end p-0' ></Col>
+            <Col className='border-end  p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[6][27].availability}`}>27</Button></Col>
+            <Col className='border-end  p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[6][28].availability}`}>28</Button></Col>
+            <Col className='border-end  p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[6][29].availability}`}>29</Button></Col>
+            <Col className='border-end  p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[6][30].availability}`}>30</Button></Col>
+            <Col className='border-end  p-0' ></Col>
+            <Col className='border-end  p-0' ></Col>
             <Col className="p-0"></Col>
         </Row>
-        
     </Container>
   )
 }

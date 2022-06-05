@@ -15,8 +15,7 @@ const CalendarSeptember = ({handleCurrentMonth, handleCurrentDay, storage}) => {
             <Col className='border-end p-0 ' ></Col>
             <Col className='border-end p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[4][1].availability}`}>1</Button></Col>
             <Col className='border-end p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[4][2].availability}`}>2</Button></Col>
-            <Col className='border-end p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[4][3].availability}`}>3</Button></Col>
-            <Col className='p-0' ><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[4][4].availability}`}>4</Button></Col>
+            <Col className='p-0'><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[4][3].availability}`}>3</Button></Col>
         </Row>
         <Row className='border border-top-0'>
             <Col className='border-end p-0' ><Button onClick={handleCurrentDay} className={`w-100 btn rounded-0 shadow-none btn-${storage[4][4].availability}`}>4</Button></Col>
