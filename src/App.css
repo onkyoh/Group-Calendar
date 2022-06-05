@@ -17,6 +17,7 @@
 
     #mainContainer {
         display: block;
+        position: relative;
     }
 
     #hide_sidebar {

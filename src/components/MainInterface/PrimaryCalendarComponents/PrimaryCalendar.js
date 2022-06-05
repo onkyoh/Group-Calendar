@@ -134,7 +134,7 @@ const handleDisplayNote = () => {
 
 
   return (
-    <div style={{width: "100vw", height: "100vh", overflowY: "auto", minWidth: "300px"}} id={primaryCalendarCSS}>
+    <div style={{width: "100vw", height: "100vh", minWidth: "300px"}} id={primaryCalendarCSS}>
 
       <Header setCalendarId={setCalendarId} calendarId={calendarId} currentUser={currentUser} storage={storage} setActiveContact={setActiveContact}/>
 
