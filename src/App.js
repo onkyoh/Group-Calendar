@@ -21,7 +21,7 @@ onAuthStateChanged (auth, (retrievedUser) => {
   } else {
    console.log("No previous user found") 
   }
-  // setLoading(false)
+  setLoading(false)
 })
 
   return (
