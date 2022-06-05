@@ -24,7 +24,6 @@ const MainContainer = ({currentUser, setCurrentUser}) => {
   }
   return (
       <div id="mainContainer">
-  
         <Sidebar currentUser={currentUser} setCurrentUser={setCurrentUser} calendarId={calendarId} setCalendarId={setCalendarId} activeContact={activeContact} setActiveContact={setActiveContact} sidebarCSS={sidebarCSS}/>
         <PrimaryCalendar currentUser={currentUser} calendarId={calendarId} setCalendarId={setCalendarId} setActiveContact={setActiveContact} primaryCalendarCSS={primaryCalendarCSS}/>
         <div onClick={handleShowContacts} className="display_contacts" id={showContactsCSS}></div> 
