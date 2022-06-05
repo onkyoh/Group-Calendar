@@ -16,15 +16,19 @@ export default function App() {
   const [loading, setLoading] = useState(true)
 
 onAuthStateChanged (auth, (retrievedUser) => {
-  setCurrentUser(retrievedUser.uid)
-  setLoading(false)
+  if (retrievedUser) {
+    setCurrentUser(retrievedUser.uid)
+  } else {
+   console.log("No previous user found") 
+  }
+  // setLoading(false)
 })
 
   return (
     <div style={{width: "100vw", height: "100vh"}}>
       {loading ? 
         <>
-          <Spinner animation="border" variant="primary" style={{height: "100px", width: "100px", marginTop: "100px"}}/>
+          <Spinner animation="border" variant="primary" style={{height: "100px", width: "100px", display: "block", margin: "auto", marginTop: "150px"}}/>
         </>
           : 
         <> 
