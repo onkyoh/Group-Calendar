@@ -151,7 +151,7 @@ const handleDisplayNote = () => {
             { intialized ?
             <div>
               <div style={{}}>
-                <div className="mb-3 text-primary fw-bold" style={{fontSize: "min(3vw, 2em)"}}>{calendarName}</div>
+                <div className="mb-3 fst-italic" style={{fontSize: "min(3vw, 2em)"}}>{calendarName}</div>
               </div>
               <CalendarShown month={month} currentMonth={currentMonth} 
               handleCurrentMonth={handleCurrentMonth} handleCurrentDay={handleCurrentDay} 
