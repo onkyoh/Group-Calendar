@@ -6,7 +6,7 @@ import { auth } from '../../firebase-config';
 const MainContainer = ({currentUser, setCurrentUser}) => {
 
   const [calendarId, setCalendarId] = useState(currentUser)
-  const [calendarName, setCalendarName] = useState(auth.currentUser.email)
+  const [calendarName, setCalendarName] = useState("User's Calendar")
   const [activeContact, setActiveContact] = useState([])
   const [sidebarCSS, setSidebarCSS] = useState("hide_sidebar")
   const [primaryCalendarCSS, setPrimaryCalendarCSS] = useState("show_primaryCalendar")
