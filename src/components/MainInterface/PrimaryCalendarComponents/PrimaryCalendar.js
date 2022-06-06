@@ -9,7 +9,7 @@ import { updateDoc, collection, doc, getDoc} from "firebase/firestore";
 
 
 
-export default function PrimaryCalendar({currentUser, calendarId, setCalendarId, setActiveContact, primaryCalendarCSS}) {
+export default function PrimaryCalendar({currentUser, calendarId, setCalendarId, setActiveContact, primaryCalendarCSS, calendarName, setCalendarName}) {
 
   const [toggle, setToggle] = useState("");
   const [month, setMonth] = useState(["May", "June", "July", "August", "September", "October", "November", "December"])
@@ -136,7 +136,11 @@ const handleDisplayNote = () => {
   return (
     <div style={{width: "100vw", height: "100vh", minWidth: "300px"}} id={primaryCalendarCSS}>
 
-      <Header setCalendarId={setCalendarId} calendarId={calendarId} currentUser={currentUser} storage={storage} setActiveContact={setActiveContact}/>
+      <Header 
+        setCalendarId={setCalendarId} calendarId={calendarId} 
+        currentUser={currentUser} storage={storage} setActiveContact={setActiveContact} 
+        calendarName={calendarName} setCalendarName={setCalendarName}
+      />
 
       <Container className="text-center p-2 mt-3">
 
@@ -144,10 +148,15 @@ const handleDisplayNote = () => {
           <Spinner animation="border" variant="primary" style={{height: "100px", width: "100px", marginTop: "100px"}}/>
           :
           <>
-            { intialized ?  
+            { intialized ?
+            <div>
+              <div style={{}}>
+                <div className="mb-3 text-primary fw-bold" style={{fontSize: "min(3vw, 2em)"}}>{calendarName}</div>
+              </div>
               <CalendarShown month={month} currentMonth={currentMonth} 
               handleCurrentMonth={handleCurrentMonth} handleCurrentDay={handleCurrentDay} 
               storage={storage}/>
+            </div>
               : null}
           
             {calendarId === currentUser ?

@@ -9,7 +9,7 @@ import DeleteContactModal from './DeleteContactModal';
 import IncomingRequests from './IncomingRequests';
 import UserInfoComponent from './UserInfoComponent';
 
-const Sidebar = ({currentUser, setCurrentUser, setCalendarId, calendarId, activeContact, setActiveContact, sidebarCSS}) => {
+const Sidebar = ({currentUser, setCurrentUser, setCalendarId, calendarId, activeContact, setActiveContact, sidebarCSS, setCalendarName }) => {
 
 const logout = async () => {
     await signOut(auth);
@@ -58,7 +58,7 @@ useEffect(() => {
       <ContactList currentUser={currentUser} 
       contacts={contacts} setContacts={setContacts} 
       setCalendarId={setCalendarId} calendarId={calendarId} 
-      activeContact={activeContact} setActiveContact={setActiveContact}/>
+      activeContact={activeContact} setActiveContact={setActiveContact} setCalendarName={setCalendarName}/>
 
       <ButtonGroup >
         <Button variant="success" className="rounded-0 shadow-none w-50" onClick={handleShowAdd}>Add</Button>

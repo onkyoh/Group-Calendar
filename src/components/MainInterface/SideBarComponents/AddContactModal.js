@@ -8,7 +8,6 @@ const AddContactModal = ({handleCloseAdd, showAdd, currentUser, errorAdd, setErr
     const idRef = useRef('')
 
 
-
     const sendRequest = async (id) => {
         const requestedRef = doc(db, "users", id)
         const usersDoc = await getDoc(requestedRef)

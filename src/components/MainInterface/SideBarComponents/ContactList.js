@@ -3,11 +3,17 @@ import { ListGroup } from 'react-bootstrap'
 import { db } from '../../../firebase-config'
 import { doc, getDoc } from 'firebase/firestore'
 
-const ContactList = ({currentUser, contacts, setContacts, setCalendarId, calendarId, activeContact, setActiveContact}) => {
+const ContactList = ({currentUser, contacts, setContacts, setCalendarId, calendarId, activeContact, setActiveContact, setCalendarName }) => {
 
-  const handleContactCalendar = (id) => {
-    setCalendarId(id)
-    console.log("current CalendarId is:", id)
+  const handleContactCalendar = async (id) => {
+    try {
+      setCalendarId(id)
+      const usersDoc = await getDoc(doc(db, 'users', id))
+      const calendarOwner = usersDoc.data().email
+      setCalendarName(calendarOwner + "'s Calendar")
+    } catch (e) {
+      console.log(e)
+    }
     }
 
   const handleContactList = async () => {

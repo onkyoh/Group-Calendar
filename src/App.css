@@ -2,6 +2,10 @@
     display: none;
 }
 
+.display_contacts_container {
+    display: none;
+}
+
 #mainContainer {
     display: flex;
 }
@@ -10,6 +14,7 @@
     height: 100vh;
     background-image: url("/src/LoginInterface/iconsUnited.png");
     background-clip: border-box;
+    background-size: min(50vw, 300px);
     
 }
 
@@ -34,40 +39,71 @@
     }
 
     .display_contacts {
-        position: absolute;
-        margin-right: 5px;
-        margin-top: 7.5px;
         display: block;
         cursor: pointer;
-        top: 0;
-        right: 0;
+        margin-bottom: 10px;
+        height: 35px;
+    }
+
+    @keyframes slideDown {
+        10% {
+            -webkit-transform: translate(0, 9%);
+            -moz-transform: translate(0, 9%);
+            -ms-transform: translate(0, 9%);
+            -o-transform: translate(0, 9%);
+        } 
+        20% {
+            -webkit-transform: translate(0, 0);
+            -moz-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            -o-transform: translate(0, 0);
+        }
+    }
+
+    #triangle1 {
+        position: absolute;
+        top: 54px;
+        left: 0px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 00px 0 30px 30px;
+        border-color: transparent transparent transparent #1266F1;
+        animation: slideDown 5s ease-in-out infinite;
+    }
+
+    #triangle2 {
+        position: absolute;
+        top: 54px;
+        left: 20px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0px 30px 30px 0;
+        border-color: transparent #1266F1 transparent transparent;
+        animation: slideDown 5s ease-in-out infinite;
+    }
+
+    .display_contacts_container {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        background-color: #1266F1;
+        height: 60px;
+        width: 50px;
+        top: -10px;
+        border-top: 0;
+        border-radius: 5px;
+        right: 2.5%;
+        animation: slideDown 5s ease-in-out infinite;
     }
 
     #open_contacts {
-        content: url("https://img.icons8.com/ios/40/undefined/apple-contacts.png");
+        content: url("/src/components/MainInterface/contactsBlue.png");
     }
 
     #open_calendar {
-        content: url("https://img.icons8.com/ios/40/undefined/calendar--v1.png");
-        margin-top: 5px;
-        margin-right: clamp(60px, 25%, 150px);
-    }
-}
-
-@media only screen and (max-width: 525px) {
-    #open_calendar {
-        content: url("https://img.icons8.com/ios/40/undefined/calendar--v1.png");
-        margin-top: 2.5px;
-        margin-right: max(80px, 21.5vw);
-        
-    }
-}
-
-@media only screen and (max-width: 450px) {
-    #open_calendar {
-        content: url("https://img.icons8.com/ios/40/undefined/calendar--v1.png");
-        margin-top: 2.5px;
-        margin-right: 50px;
-        
+        content: url("/src/components/MainInterface/calendarBlue.png");
     }
 }
