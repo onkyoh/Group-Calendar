@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { Container, Form, Button } from "react-bootstrap"
 import {db, auth} from "../firebase-config"
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut
 } from 'firebase/auth'
 import { setDoc, doc } from 'firebase/firestore'
 import {ReactComponent as Github } from '../LoginInterface/github.svg';

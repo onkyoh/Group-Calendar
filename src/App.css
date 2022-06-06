@@ -23,19 +23,21 @@
     #mainContainer {
         display: block;
         position: relative;
+        overflow: none;
     }
 
     #hide_sidebar {
         position: absolute;
-        visibility: collapse;
+        visibility: hidden;
     }
+
     #show_sidebar {
         position: absolute;
         left: 50%;
         transform: translate(-50%);
     }
     #hide_primaryCalendar {
-        visibility: collapse;
+        visibility: hidden;
     }
 
     .display_contacts {
@@ -88,7 +90,7 @@
         position: absolute;
         display: flex;
         justify-content: center;
-        align-items: end;
+        align-items: flex-end;
         background-color: #1266F1;
         height: 60px;
         width: 50px;
