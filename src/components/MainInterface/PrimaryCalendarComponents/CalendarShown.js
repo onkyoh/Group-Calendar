@@ -11,18 +11,16 @@ import CalendarDecember from '../../CalendarComponents/CalendarDecember';
 
 const CalendarShown = ({month, currentMonth, handleCurrentDay, handleCurrentMonth, storage}) => {
 
-
   return (
     <div>
-    {month[currentMonth] === "May" ? <CalendarMay handleCurrentMonth={handleCurrentMonth} handleCurrentDay={handleCurrentDay} storage={storage}/>  : null}
-    {month[currentMonth] === "June" ? <CalendarJune  handleCurrentMonth={handleCurrentMonth} handleCurrentDay={handleCurrentDay} storage={storage}/> : null}
-    {month[currentMonth] === "July" ? <CalendarJuly handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>  : null}
-    {month[currentMonth] === "August" ? <CalendarAugust handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>  : null}
-    {month[currentMonth] === "September" ? <CalendarSeptember handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>  : null}
-    {month[currentMonth] === "October" ? <CalendarOctober handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>  : null}
-    {month[currentMonth] === "November" ? <CalendarNovember handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>  : null}
-    {month[currentMonth] === "December" ? <CalendarDecember handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>  : null}
-    
+    {month[currentMonth] === "May" && <CalendarMay handleCurrentMonth={handleCurrentMonth} handleCurrentDay={handleCurrentDay} storage={storage}/>}
+    {month[currentMonth] === "June" && <CalendarJune  handleCurrentMonth={handleCurrentMonth} handleCurrentDay={handleCurrentDay} storage={storage}/>}
+    {month[currentMonth] === "July" && <CalendarJuly handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>}
+    {month[currentMonth] === "August" && <CalendarAugust handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>}
+    {month[currentMonth] === "September" && <CalendarSeptember handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>}
+    {month[currentMonth] === "October" && <CalendarOctober handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>}
+    {month[currentMonth] === "November" && <CalendarNovember handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>}
+    {month[currentMonth] === "December" && <CalendarDecember handleCurrentMonth={handleCurrentMonth}  handleCurrentDay={handleCurrentDay} storage={storage}/>}
     </div>
   )
 }

@@ -12,8 +12,8 @@ import { updateDoc, collection, doc, getDoc} from "firebase/firestore";
 export default function PrimaryCalendar({currentUser, calendarId, setCalendarId, setActiveContact, primaryCalendarCSS, calendarName, setCalendarName}) {
 
   const [toggle, setToggle] = useState("");
-  const [month, setMonth] = useState(["May", "June", "July", "August", "September", "October", "November", "December"])
-  const [currentMonth, setCurrentMonth] = useState(1)
+  const month = ["May", "June", "July", "August", "September", "October", "November", "December"]
+  const [currentMonth, setCurrentMonth] = useState(2)
   const [previousTarget, setPreviousTarget] = useState({style: {backgroundColor: "", color: ""}})
   const [currentDay, setCurrentDay] = useState(0)
   const [intialized, setInitailized] = useState(false)
@@ -23,7 +23,10 @@ export default function PrimaryCalendar({currentUser, calendarId, setCalendarId,
   const userRef = doc(db, 'users', currentUser)
   const contactRef = doc(db, 'users', calendarId)
 
-  const fetchCalendarData = async (current) => {
+  const today = new Date()
+  const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+  const fetchCalendarData = async () => {
     try {
       if (currentUser !== calendarId) {
         const doc = await getDoc(contactRef)
@@ -36,18 +39,22 @@ export default function PrimaryCalendar({currentUser, calendarId, setCalendarId,
         const tempStorage = Object.values(acquiredData)
         setStorage([...tempStorage])
       }
+      setInitailized(true)
     } catch (e) {
       console.log(e.message)
     }
-    setInitailized(true)
-    setCurrentMonth(current)
   }
 
-
 useEffect(() => {
-  const current = currentMonth
-  setCurrentMonth(0)
-  fetchCalendarData(current)
+  const todayArray = [today.getDate(), today.getMonth(), today.getFullYear()]
+  console.log(todayArray)
+  if (todayArray[2] === 2022) {
+    const idx = month.indexOf(monthList[todayArray[1]])
+    setCurrentMonth(idx)
+    fetchCalendarData(idx)
+  } else {
+    fetchCalendarData()
+  }
   setToggle("")
 }, [calendarId])
 
@@ -148,30 +155,32 @@ const handleDisplayNote = () => {
           <Spinner animation="border" variant="primary" style={{height: "100px", width: "100px", marginTop: "100px"}}/>
           :
           <>
-            { intialized ?
-            <div>
-              <div style={{}}>
-                <div className="mb-3 fst-italic" style={{fontSize: "min(3vw, 2em)"}}>{calendarName}</div>
+            {intialized &&
+            <>
+              <div>
+                <div className="mb-3 fst-italic" style={{fontSize: "min(3vw, 2em)"}}>
+                  {calendarName}
+                </div>
               </div>
-              <CalendarShown month={month} currentMonth={currentMonth} 
-              handleCurrentMonth={handleCurrentMonth} handleCurrentDay={handleCurrentDay} 
-              storage={storage}/>
-            </div>
-              : null}
+              <CalendarShown month={month} currentMonth={currentMonth}
+               handleCurrentMonth={handleCurrentMonth} handleCurrentDay={handleCurrentDay} storage={storage}/>
+            </>
+            }
           
-            {calendarId === currentUser ?
+            {calendarId === currentUser &&
               <>
                 <ToggleButtons setToggle={setToggle} toggle={toggle}/>
-                {currentDay > 0 ? <Button onClick={handleDisplayNote}>Add Note</Button> : null}
+                {currentDay > 0 && <Button onClick={handleDisplayNote}>Add Note</Button>}
               </>
-            : null}    
+            }    
 
-            {intialized && storage[currentMonth][currentDay].note ? 
+            {intialized && storage[currentMonth][currentDay].note &&
               <Note 
                 storage={storage} setStorage={setStorage} 
                 currentDay={currentDay} currentMonth={currentMonth} 
-                month={month} currentUser={currentUser} calendarId={calendarId}/>
-            : null}
+                month={month} currentUser={currentUser} calendarId={calendarId}
+              />
+            }
           </>
       }
      
